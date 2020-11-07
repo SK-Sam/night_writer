@@ -24,7 +24,7 @@ class EnToBrailleDictTest < MiniTest::Test
     end
 
     def test_it_can_split_given_string_into_arr_of_braille
-        expected = ["0.\n00\n..","0.\n..\n.."]
+        expected = [["0.", "00", ".."],["0.", "..", ".."]]
         assert_equal expected, @en_to_braille.arr_of_braille("ha")
     end
 end
