@@ -6,4 +6,7 @@ read_input_file = File.open(input_file, 'r')
 text_as_string = read_input_file.read
 read_input_file.close
 char_count = text_as_string.count "^\n"
+File.open(output_file, 'w') do |file|
+    file.write(text_as_string)
+end
 puts "Created '#{output_file}' containing #{char_count} characters\n"
