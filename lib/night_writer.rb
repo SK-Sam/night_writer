@@ -3,6 +3,7 @@ input_file = gets.chomp
 print "Please enter the name you would like for the braille text file. "
 output_file = gets.chomp
 read_input_file = File.open(input_file, 'r')
-char_count = read_input_file.read.delete("\n").length
+text_as_string = read_input_file.read
 read_input_file.close
+char_count = text_as_string.count "^\n"
 puts "Created '#{output_file}' containing #{char_count} characters\n"
