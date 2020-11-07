@@ -30,6 +30,7 @@ class EnToBrailleDict
             "z" => "0.\n.0\n00"
         }
         @dictionary_numeric = {
+            "#" => ".0\n.0\n00",
             "0" => ".0\n00\n..",
             "1" => "0.\n..\n..",
             "2" => "0.\n0.\n..",
@@ -47,13 +48,33 @@ class EnToBrailleDict
             "," => "..\n0.\n..",
             "-" => "..\n..\n00",
             "." => "..\n00\n.0",
-            "?" => "..\n0.\n00",
-            "#" => ".0\n.0\n00"
+            "?" => "..\n0.\n00"
         }
     end
 
     def translate(en_string)
-        @dictionary_alpha[en_string]
+        line1 = []
+        line2 = []
+        line3 = []
+        translation_container = [line1, line2, line3]
+        arr_of_braille(en_string).each do |arr|
+            line1 << arr[0]
+            line2 << arr[1]
+            line3 << arr[2]
+        end
+        translation_container.each do |line|
+            line << "\n"
+        end
+        translation_container.flatten.join
+    end
+
+    def arr_of_braille(en_string)
+        arr_of_braille = en_string.split("").map do |letter|
+            @dictionary_alpha[letter]
+        end
+        arr_of_braille.map do |braille|
+            braille.split("\n")
+        end
     end
 
 end
