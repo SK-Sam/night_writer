@@ -13,6 +13,18 @@ class EnToBrailleDictTest < MiniTest::Test
 
     def test_it_can_translate_single_chars
         string_to_translate = "h"
-        assert_equal "0.\n00\n..", @en_to_braille.translate(string_to_translate)
+        assert_equal "0.\n00\n..\n", @en_to_braille.translate(string_to_translate)
+    end
+
+    def test_it_can_translate_multiple_chars
+        string_to_translate = "ha"
+
+        expected = "0.0.\n00..\n....\n"
+        assert_equal expected, @en_to_braille.translate(string_to_translate)
+    end
+
+    def test_it_can_split_given_string_into_arr_of_braille
+        expected = ["0.\n00\n..","0.\n..\n.."]
+        assert_equal expected, @en_to_braille.arr_of_braille("ha")
     end
 end
