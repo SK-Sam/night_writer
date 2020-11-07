@@ -8,7 +8,7 @@ class EnToBrailleDictTest < MiniTest::Test
     end
 
     def test_it_can_instantiate_with_a_set_dictionary
-        assert_equal "a", @en_to_braille.dictionary.keys[0]
+        assert_instance_of EnToBrailleDict, @en_to_braille
     end
 
     def test_it_can_translate_single_chars

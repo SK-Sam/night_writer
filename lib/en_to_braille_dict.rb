@@ -52,4 +52,8 @@ class EnToBrailleDict
         }
     end
 
+    def translate(en_string)
+        @dictionary_alpha[en_string]
+    end
+
 end
