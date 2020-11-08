@@ -52,20 +52,9 @@ class EnToBrailleDict
         }
     end
 
-    def translate(en_string)
-        line1 = []
-        line2 = []
-        line3 = []
-        translation_container = [line1, line2, line3]
-        arr_of_braille(en_string).each do |arr|
-            line1 << arr[0]
-            line2 << arr[1]
-            line3 << arr[2]
-        end
-        translation_container.each do |line|
-            line << "\n"
-        end
-        translation_container.flatten.join
+    def translate(en_string)    
+        return @dictionary_alpha[en_string] + "\n" if en_string.length == 1
+        format_into_three_braille_strings(en_string)
     end
 
     def arr_of_braille(en_string)
