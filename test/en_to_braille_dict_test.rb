@@ -37,4 +37,11 @@ class EnToBrailleDictTest < MiniTest::Test
         expected = "0.0.\n00..\n....\n"
         assert_equal expected, @en_to_braille.translate(string_to_translate)
     end
+
+    def test_it_can_handle_spaces
+        string_to_translate = "hello world"
+
+        expected = "0.0.0.0.0....00.0.0.00\n00.00.0..0..00.0000..0\n....0.0.0....00.0.0...\n"
+        assert_equal expected, @en_to_braille.translate(string_to_translate)
+    end
 end
