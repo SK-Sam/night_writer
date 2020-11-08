@@ -10,6 +10,6 @@ read_input_file.close
 char_count = text_as_string.count "^\n"
 en_to_braille_dict = EnToBrailleDict.new
 File.open(output_file, 'w') do |file|
-    file.write(en_to_braille_dict.translate(text_as_string[1]))
+    file.write(en_to_braille_dict.translate(text_as_string))
 end
 puts "Created '#{output_file}' containing #{char_count} characters\n"
