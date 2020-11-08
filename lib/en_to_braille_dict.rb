@@ -65,5 +65,18 @@ class EnToBrailleDict
             braille.split("\n")
         end
     end
+    
+    def format_into_three_arrays(en_string)
+        line1 = []
+        line2 = []
+        line3 = []
+        translation_container = [line1, line2, line3]
+        arr_of_braille(en_string).each do |arr|
+            line1 << arr[0]
+            line2 << arr[1]
+            line3 << arr[2]
+        end
+        translation_container
+    end
 
 end
