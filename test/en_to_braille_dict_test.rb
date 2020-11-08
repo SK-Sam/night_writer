@@ -27,8 +27,8 @@ class EnToBrailleDictTest < MiniTest::Test
     end
 
     def test_it_can_turn_three_arrays_into_three_braille_strings
-      expected = "0.0.\n00..\n....\n"  
-      assert_equal expected, @en_to_braille.format_into_three_braille_strings("ha")
+        expected = "0.0.\n00..\n....\n"  
+        assert_equal expected, @en_to_braille.format_into_three_braille_strings("ha")
     end
 
     def test_it_can_translate_multiple_chars
