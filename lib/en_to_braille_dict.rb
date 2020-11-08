@@ -78,5 +78,10 @@ class EnToBrailleDict
         end
         translation_container
     end
-
+    
+    def format_into_three_braille_strings(en_string)
+        format_into_three_arrays(en_string).each do |line|
+            line << "\n"
+        end.flatten.join
+    end
 end
