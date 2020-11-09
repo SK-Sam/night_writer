@@ -56,9 +56,8 @@ class EnToBrailleDictTest < MiniTest::Test
     end
 
     def test_it_can_newline_after_40_en_characters
-        skip
-        fourty_char_string_to_translate = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        fourty_one_char_string_to_translate = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 
-        assert_equal 6, @en_to_braille.translate(fourty_char_string_to_translate).count("\n")
+        assert_equal 7, @en_to_braille.translate(fourty_one_char_string_to_translate).count("\n")
     end
 end
