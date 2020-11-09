@@ -49,6 +49,10 @@ class EnToBrailleDictTest < MiniTest::Test
         string_to_divide = "aaaaaaaaaaa"
 
         assert_equal 1, @en_to_braille.string_divided_by_40(string_to_divide)
+
+        string_to_divide *= 8
+
+        assert_equal 2, @en_to_braille.string_divided_by_40(string_to_divide)
     end
 
     def test_it_can_newline_after_40_en_characters
