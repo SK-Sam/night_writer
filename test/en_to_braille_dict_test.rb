@@ -44,4 +44,17 @@ class EnToBrailleDictTest < MiniTest::Test
         expected = "0.0.0.0.0....00.0.0.00\n00.00.0..0..00.0000..0\n....0.0.0....00.0.0...\n"
         assert_equal expected, @en_to_braille.translate(string_to_translate)
     end
+
+    def test_string_divided_by_40
+        string_to_divide = "aaaaaaaaaaa"
+
+        assert_equal 1, @en_to_braille.string_divided_by_40(string_to_divide)
+    end
+
+    def test_it_can_newline_after_40_en_characters
+        skip
+        fourty_char_string_to_translate = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+
+        assert_equal 6, @en_to_braille.translate(fourty_char_string_to_translate).count("\n")
+    end
 end
