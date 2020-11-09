@@ -58,7 +58,7 @@ class EnToBrailleDict
         #format_into_three_braille_strings(en_string)
         separate_string_per_40_chars(en_string).map do |string|
             format_into_three_braille_strings(string)
-        end.join("\n")
+        end.join#("\n")
     end
 
     def separate_string_per_40_chars(en_string)
