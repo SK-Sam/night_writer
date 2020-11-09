@@ -45,14 +45,14 @@ class EnToBrailleDictTest < MiniTest::Test
         assert_equal expected, @en_to_braille.translate(string_to_translate)
     end
 
-    def test_string_divided_by_40
-        string_to_divide = "aaaaaaaaaaa"
+    def test_string_is_divided_per_40_into_array_of_strings
+        string_of_44 = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        string_of_88 = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 
-        assert_equal 1, @en_to_braille.string_divided_by_40(string_to_divide)
-
-        string_to_divide *= 8
-
-        assert_equal 2, @en_to_braille.string_divided_by_40(string_to_divide)
+        expected = ["aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "aaaa"]
+        expected_88_size = ["aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "aaaaaaaa"]
+        assert_equal expected, @en_to_braille.separate_string_per_40_chars(string_of_44)
+        assert_equal expected_88_size, @en_to_braille.separate_string_per_40_chars(string_of_88)
     end
 
     def test_it_can_newline_after_40_en_characters
