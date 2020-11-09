@@ -58,6 +58,11 @@ class EnToBrailleDict
         format_into_three_braille_strings(en_string)
     end
 
+    def string_divided_by_40(en_string)
+        return 1 if en_string.length / 40 < 1
+        en_string.length / 40
+    end
+
     def arr_of_braille(en_string)
         arr_of_braille = en_string.split("").map do |letter|
             @dictionary_alpha[letter]
