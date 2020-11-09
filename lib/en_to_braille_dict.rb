@@ -54,13 +54,15 @@ class EnToBrailleDict
     end
 
     def translate(en_string)    
-        return @dictionary_alpha[en_string] + "\n" if en_string.length == 1
-        format_into_three_braille_strings(en_string)
+        #return @dictionary_alpha[en_string] + "\n" if en_string.length == 1
+        #format_into_three_braille_strings(en_string)
+        separate_string_per_40_chars(en_string).map do |string|
+            format_into_three_braille_strings(string)
+        end.join("\n")
     end
 
-    def string_divided_by_40(en_string)
-        return 1 if en_string.length / 40 < 1
-        en_string.length / 40
+    def separate_string_per_40_chars(en_string)
+        en_string.chars.each_slice(40).map(&:join)
     end
 
     def arr_of_braille(en_string)
