@@ -60,4 +60,11 @@ class EnToBrailleDictTest < MiniTest::Test
 
         assert_equal 6, @en_to_braille.translate(fourty_one_char_string_to_translate).count("\n")
     end
+
+    def test_it_can_treat_newline_as_spaces
+        string_to_test = "hello my\nname is sam"
+
+        expected = "0.0.0.0.0...0000..000.000....0.0...00.00\n00.00.0..0.....0...0.....0..0.0...0.....\n....0.0.0...0.00..0...0.......0...0...0.\n"
+        assert_equal expected, @en_to_braille.translate(string_to_test)
+    end
 end

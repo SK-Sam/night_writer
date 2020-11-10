@@ -54,7 +54,7 @@ class EnToBrailleDict
     end
 
     def translate(en_string)    
-        separate_string_per_40_chars(en_string).map do |string|
+        separate_string_per_40_chars(en_string.gsub("\n", " ")).map do |string|
             format_into_three_braille_strings(string)
         end.join
     end
