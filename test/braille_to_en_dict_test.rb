@@ -19,4 +19,14 @@ class BrailleToEnDictTest < MiniTest::Test
         expected = [expected_string_1, expected_string_2, expected_string_3]
         assert_equal expected, @braille_to_en.separate_to_three_lines(string_input)
     end
+
+    def test_it_can_format_three_strings_into_braille_char_format
+        top_row_string = "0..."
+        middle_row_string = "...."
+        bottom_row_string = "...."
+        array_of_three_strings = [top_row_string, middle_row_string, bottom_row_string]
+
+        expected = ["0.\n..\n..", "..\n..\n.."]
+        assert_equal expected, @braille_to_en.format_into_braille_char_array(array_of_three_strings)
+    end
 end
