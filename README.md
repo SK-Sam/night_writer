@@ -10,3 +10,4 @@
   - Maximum Braille chars per row is 40
   - Any inappropriate newline's or preemptive newlines are treated as spaces to ease the reading in Braille
   - Spaces are counted in summary since an empty space is considered a Braille character
+  - No implementation of translating punctiation, capital letters, or numbers
