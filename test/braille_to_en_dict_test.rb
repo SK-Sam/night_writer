@@ -45,7 +45,19 @@ class BrailleToEnDictTest < MiniTest::Test
             ["..", ".."],
             ["..", ".."]
         ]
-        #expected = ["0.\n..\n..", "..\n..\n.."]
+        assert_equal expected, @braille_to_en.separate_array_of_braille_strings_per_two_chars(array_of_three_strings)
+
+        top_row_string = "0....."
+        middle_row_string = "......"
+        bottom_row_string = "......"
+        array_of_three_strings = [top_row_string, middle_row_string, bottom_row_string]
+
+        expected = [
+            ["0.", "..", ".."], 
+            ["..", "..", ".."],
+            ["..", "..", ".."]
+        ]
+
         assert_equal expected, @braille_to_en.separate_array_of_braille_strings_per_two_chars(array_of_three_strings)
     end
 end
