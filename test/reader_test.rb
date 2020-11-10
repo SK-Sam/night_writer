@@ -24,4 +24,10 @@ class ReaderTest < MiniTest::Test
 
         assert_equal 11, reader.file_char_count_en_to_braille
     end
+
+    def test_it_can_find_file_char_count_for_braille_to_en
+        reader = Reader.new("braille.txt", "./test/test.txt")
+
+        assert_equal 11, reader.file_char_count_braille_to_en
+    end
 end
