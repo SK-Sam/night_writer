@@ -22,4 +22,17 @@ class WriterTest < MiniTest::Test
         expected = "0.0.0.0.0....00.0.0.00\n00.00.0..0..00.0000..0\n....0.0.0....00.0.0...\n"
         assert_equal expected, file_content
     end
+
+    def test_it_can_translate_from_braille_to_en
+        hello_world_in_braille = "0.0.0.0.0....00.0.0.00\n00.00.0..0..00.0000..0\n....0.0.0....00.0.0...\n"
+        writer = Writer.new("./test/test.txt", hello_world_in_braille)
+        writer.translate_braille_to_en
+
+        file_content = File.open("./test/test.txt", 'r') do |file|
+            file.read
+        end
+
+        expected = "hello world"
+        assert_equal expected, file_content
+    end
 end
