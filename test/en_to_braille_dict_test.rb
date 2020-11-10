@@ -2,6 +2,7 @@ require './test/test_helper'
 require './lib/en_to_braille_dict'
 
 class EnToBrailleDictTest < MiniTest::Test
+    
     def setup
         @en_to_braille = EnToBrailleDict.new
     end
