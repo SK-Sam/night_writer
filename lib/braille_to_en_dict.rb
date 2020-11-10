@@ -34,4 +34,8 @@ class BrailleToEnDict
     def separate_to_three_lines(braille_string)
         braille_string.split("\n")
     end
+
+    def separate_each_string_per_two_chars(braille_string)
+        braille_string.chars.each_slice(2).map(&:join)
+    end
 end
