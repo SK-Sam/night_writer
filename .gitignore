@@ -1,1 +1,6 @@
 braille.txt
+message.txt
+output_message.txt
+Rakefile
+/coverage
+.DS_Store

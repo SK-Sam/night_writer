@@ -1,5 +1,5 @@
+require './test/test_helper'
 require './lib/braille_to_en_dict'
-require 'minitest/autorun'
 
 class BrailleToEnDictTest < MiniTest::Test
     def setup
