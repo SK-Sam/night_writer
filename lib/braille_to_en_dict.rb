@@ -38,4 +38,10 @@ class BrailleToEnDict
     def separate_each_string_per_two_chars(braille_string)
         braille_string.chars.each_slice(2).map(&:join)
     end
+    
+    def separate_array_of_braille_strings_per_two_chars(braille_array)
+        braille_array.map do |row|
+            separate_each_string_per_two_chars(row)
+        end
+    end
 end
