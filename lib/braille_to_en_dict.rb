@@ -53,8 +53,14 @@ class BrailleToEnDict
         joined_string = braille_char_arr.map do |row|
             row.join("\n")
         end
-        joined_string.map do |char|
-            char += "\n"
-        end
     end
+
+    def translate(braille_string)
+        separated_arr_into_rows = separate_array_of_braille_strings_per_two_chars(separate_to_three_lines(braille_string))
+        columned_format = format_into_braille_char_array(separated_arr_into_rows)
+        braille_as_strings(columned_format).map do |braille_chars|
+            @dictionary_alpha[braille_chars]
+        end.join
+    end
+
 end
