@@ -39,4 +39,15 @@ class ReaderTest < MiniTest::Test
 
         assert_equal 11, reader.file_char_count_braille_to_en
     end
+
+    def test_it_can_summarize_both_night_reader_and_writer
+        reader = Reader.new("./test/test.txt", "braille.txt")
+        reader.stubs(:file_char_count_en_to_braille).returns(1)
+        reader.stubs(:file_char_count_braille_to_en).returns(2)
+
+        expected_night_writer = "Created 'braille.txt' containing 1 characters\n"
+        expected_night_reader = "Created 'braille.txt' containing 2 characters\n"
+        assert_equal expected_night_writer, reader.summarize("night_writer")
+        assert_equal expected_night_reader, reader.summarize("night_reader")
+    end
 end
