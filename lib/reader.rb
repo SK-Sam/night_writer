@@ -33,4 +33,10 @@ class Reader
         @input_as_string.length
     end
 
+    def file_char_count_braille_to_en
+        File.open(@output_file_name, 'r') do |file|
+            file.read.length
+        end
+    end
+
 end
