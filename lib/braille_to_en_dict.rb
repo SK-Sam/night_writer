@@ -44,4 +44,8 @@ class BrailleToEnDict
             separate_each_string_per_two_chars(row)
         end
     end
+
+    def format_into_braille_char_array(braille_char_arr)
+        braille_char_arr[0].zip(braille_char_arr[1], braille_char_arr[2])
+    end
 end
