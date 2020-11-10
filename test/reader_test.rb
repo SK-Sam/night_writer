@@ -11,4 +11,10 @@ class ReaderTest < MiniTest::Test
         assert_equal "message.txt", reader.input_file_name
         assert_equal "braille.txt", reader.output_file_name
     end
+
+    def test_it_can_open_a_file_and_save_as_string
+        reader = Reader.new("./test/test.txt", "braille.txt")
+
+        assert_equal "hello world", reader.read_file
+    end
 end
