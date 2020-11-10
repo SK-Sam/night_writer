@@ -30,4 +30,8 @@ class BrailleToEnDict
             "..\n..\n.." => " "
         }
     end
+
+    def separate_to_three_lines(braille_string)
+        braille_string.split("\n")
+    end
 end
