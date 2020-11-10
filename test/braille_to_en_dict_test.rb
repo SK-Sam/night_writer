@@ -103,4 +103,10 @@ class BrailleToEnDictTest < MiniTest::Test
         expected = [expected_row1, expected_row2, expected_row3]
         assert_equal expected, @braille_to_en.braille_as_strings(arr_of_rows)
     end
+
+    def test_it_can_translate_braille_into_english_chars
+        string_to_translate = "0.0...0.\n........\n........"
+
+        assert_equal "aa a", @braille_to_en.translate(string_to_translate)
+    end
 end
