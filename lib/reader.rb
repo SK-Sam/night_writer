@@ -39,4 +39,8 @@ class Reader
         end
     end
 
+    def summarize(mode)
+        return "Created '#{@output_file_name}' containing #{file_char_count_en_to_braille} characters\n" if mode == "night_writer"
+        return "Created '#{@output_file_name}' containing #{file_char_count_braille_to_en} characters\n" if mode == "night_reader"
+    end
 end
