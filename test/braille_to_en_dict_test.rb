@@ -74,5 +74,33 @@ class BrailleToEnDictTest < MiniTest::Test
             ["0.", "..", ".."]
         ]
         assert_equal expected, @braille_to_en.format_into_braille_char_array(array_of_rows)
+
+        array_of_rows = [
+            ["0.", "0.", "0.", "0."], 
+            ["..", "..", "..", ".."],
+            ["..", "..", "..", ".."]
+        ]
+
+        expected = [
+            ["0.", "..", ".."],
+            ["0.", "..", ".."],
+            ["0.", "..", ".."],
+            ["0.", "..", ".."]
+        ]
+        assert_equal expected, @braille_to_en.format_into_braille_char_array(array_of_rows)
+    end
+
+    def test_it_can_join_each_arrays_elements_together_with_newline
+        arr_of_rows = [
+            ["0.", "..", ".."],
+            ["0.", "..", ".."],
+            ["0.", "..", ".."]
+        ]  
+
+        expected_row1 = "0.\n..\n..\n"
+        expected_row2 = "0.\n..\n..\n"
+        expected_row3 = "0.\n..\n..\n"
+        expected = [expected_row1, expected_row2, expected_row3]
+        assert_equal expected, @braille_to_en.braille_as_strings(arr_of_rows)
     end
 end
