@@ -1,5 +1,4 @@
 class EnToBrailleDict
-
     def initialize
         @dictionary_alpha = {
             "a" => "0.\n..\n..",
