@@ -1,5 +1,7 @@
-class Writer
+require './lib/en_to_braille_dict'
+require './lib/braille_to_en_dict'
 
+class Writer
     def initialize(output_file_name, file_content)
         @output_file_name = output_file_name
         @file_content = file_content
@@ -18,5 +20,4 @@ class Writer
             file.write(@braille_to_en_dict.translate(@file_content))
         end
     end
-
 end
