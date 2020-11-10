@@ -48,4 +48,13 @@ class BrailleToEnDict
     def format_into_braille_char_array(braille_char_arr)
         braille_char_arr[0].zip(braille_char_arr[1], braille_char_arr[2])
     end
+
+    def braille_as_strings(braille_char_arr)
+        joined_string = braille_char_arr.map do |row|
+            row.join("\n")
+        end
+        joined_string.map do |char|
+            char += "\n"
+        end
+    end
 end
