@@ -13,4 +13,10 @@ class Writer
         end
     end
 
+    def translate_braille_to_en
+        File.open(@output_file_name, 'w') do |file|
+            file.write(@braille_to_en_dict.translate(@file_content))
+        end
+    end
+
 end
