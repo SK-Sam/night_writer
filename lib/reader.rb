@@ -21,5 +21,7 @@ class Reader
         end
     end
 
-
+    def file_char_count
+        @input_as_string.length
+    end
 end
