@@ -31,6 +31,10 @@ class BrailleToEnDict
         }
     end
 
+    def separate_braille_over_80_chars_into_arrays(braille_string)
+        braille_string.chars.each_slice(243).map(&:join)
+    end
+
     def separate_to_three_lines(braille_string)
         braille_string.split("\n")
     end
@@ -56,11 +60,12 @@ class BrailleToEnDict
     end
 
     def translate(braille_string)
-        separated_arr_into_rows = separate_array_of_braille_strings_per_two_chars(separate_to_three_lines(braille_string))
-        columned_format = format_into_braille_char_array(separated_arr_into_rows)
-        braille_as_strings(columned_format).map do |braille_chars|
-            @dictionary_alpha[braille_chars]
+        separate_braille_over_80_chars_into_arrays(braille_string).map do |braille|
+            separated_arr_into_rows = separate_array_of_braille_strings_per_two_chars(separate_to_three_lines(braille))
+            columned_format = format_into_braille_char_array(separated_arr_into_rows)
+            braille_as_strings(columned_format).map do |braille_chars|
+                @dictionary_alpha[braille_chars]
+            end.join
         end.join
     end
-
 end
